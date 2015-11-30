@@ -72,6 +72,9 @@
       }
     }
 
+    /**
+     * Method to preview form.
+     */
     function preview(){
       vm.showForm = true;
     }
@@ -84,6 +87,9 @@
       }
     }
 
+    /**
+     * Method to save form.
+     */
     function saveForm() {
       try {
         formService.saveForm(vm.formModel).then(function (response) {
@@ -104,6 +110,9 @@
       }
     }
 
+    /**
+     * Method to close alert.
+     */
     function closeAlert() {
       vm.msg = null;
     }
