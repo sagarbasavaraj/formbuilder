@@ -26,7 +26,7 @@ Form builder application written using Angular, node and mongodb.
 
 * Clone git repo and cd to server folder: 
  ``` 
-  $ git clone <git path>
+  $ git clone https://github.com/sagarbasavaraj/formbuilder
   $ cd form-builder/server
  ```
   
