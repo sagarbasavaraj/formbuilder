@@ -43,7 +43,7 @@ function runTests (singleRun, done) {
   server.start();
 }
 
-gulp.task('test', ['scripts'], function(done) {
+gulp.task('test', ['partials','scripts'], function(done) {
   runTests(true, done);
 });
 
