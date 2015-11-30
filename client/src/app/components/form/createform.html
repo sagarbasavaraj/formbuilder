@@ -1,0 +1,73 @@
+<div class="pull-right">
+  <p><span data-translate="TOTAL"/> {{vm.formCount}}</p>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="well">
+      <alert type='success' dismiss-on-timeout="4000" close="vm.closeAlert()" data-ng-if="vm.msg">{{vm.msg}}</alert>
+
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="formName" class="col-sm-2 control-label" data-translate="FORM_NAME"></label>
+
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="formName" placeholder="My form"
+                   data-ng-model="vm.formModel.formName">
+          </div>
+        </div>
+        <div class="form-group">
+          <h4 class="col-sm-12" data-translate="FORM_FIELDS"></h4>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" data-translate="SELECT_FIELD"></label>
+
+          <div class="col-sm-4">
+            <select class="form-control field-drop-down" data-ng-model="vm.field.type"
+                    data-ng-options="type.name as type.value for type in vm.field.types"></select>
+          </div>
+          <button type="button" class="btn btn-primary add-field" data-translate="ADD_FIELD"
+                  data-ng-click="vm.addField()"></button>
+        </div>
+
+        <hr>
+        <p data-ng-show="vm.formModel.formFields.length === 0" data-translate="NO_FIELDS_MESSAGE"></p>
+
+        <div data-ng-include="'app/components/form/templates/accordian.html'"></div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="pull-right">
+              <button type="button" data-ng-disabled="vm.formModel.formFields.length === 0" class="btn btn-primary btn-preview"
+                      data-translate="PREVIEW" data-toggle="modal"
+                      data-target="#view-form" data-ng-click="vm.preview()"></button>
+              <button type="button" data-ng-disabled="vm.formModel.formFields.length === 0" class="btn btn-primary btn-reset"
+                      data-translate="RESET" data-ng-click="vm.reset()"></button>
+              <button type="button" data-ng-disabled="vm.formModel.formFields.length === 0" class="btn btn-success btn-save"
+                      data-translate="SAVE" data-ng-click="vm.saveForm()"></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" data-modal show-form="vm.showForm" id="view-form" tabindex="-1"
+     role="dialog" aria-labelledby="form-preview" data-ng-if="vm.showForm">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="form-preview" data-translate="FORM_PREVIEW"></h4>
+      </div>
+      <div class="modal-body">
+        <form-view form="vm.formModel"></form-view>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-close" data-dismiss="modal" data-translate="CLOSE"></button>
+      </div>
+    </div>
+  </div>
+</div>
+

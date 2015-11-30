@@ -1,0 +1,71 @@
+<accordion>
+  <accordion-group heading="{{field.title}}" ng-repeat="field in vm.formModel.formFields">
+
+    <button class="btn btn-danger pull-right" type="button" data-ng-click="vm.deleteField(field.id)"
+            data-translate="DELETE"></button>
+
+    <div class="row">
+      <label class="col-xs-2 text-right" data-translate="FIELD_ID"></label>
+      <label class="col-xs-4">{{field.id}}</label>
+    </div>
+    <div class="row">
+      <label class="col-xs-2 text-right" data-translate="FIELD_TYPE"></label>
+      <label class="col-xs-4">{{field.type}}</label>
+    </div>
+    <hr>
+    <div class="row form-horizontal">
+      <div class="form-group">
+        <label class="col-xs-2 control-label" data-translate="FIELD_TITLE"></label>
+
+        <div class="col-sm-4">
+          <input type="text" class="form-control" data-ng-model="field.title" value="{{field.title}}">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 control-label" data-translate="FIELD_DEFAULT_VALUE"></label>
+
+        <div class="col-sm-4">
+          <input type="text" class="form-control" data-ng-model="field.value" value="{{field.value}}">
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <label class="col-xs-2 control-label" data-translate="REQUIRED"></label>
+
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label class="radio-inline">
+            <input type="radio" ng-value="true" ng-selected ng-model="field.required"/>
+            {{ 'YES' | translate}}
+          </label>
+          <label class="radio-inline">
+            <input type="radio" ng-value="false" ng-model="field.required"/>
+            {{ 'NO' | translate}}
+          </label>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <label class="col-xs-2 control-label" data-translate="DISABLED"></label>
+
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label class="radio-inline">
+            <input type="radio" ng-value="true" ng-selected ng-model="field.disabled"/>
+            {{ 'YES' | translate}}
+          </label>
+          <label class="radio-inline">
+            <input type="radio" ng-value="false" ng-model="field.disabled"/>
+            {{ 'NO' | translate}}
+          </label>
+        </div>
+      </div>
+    </div>
+  </accordion-group>
+</accordion>
